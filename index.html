@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Masai Calculator</title>
+    <style>
+      h1 {
+        text-align: center;
+        font-size: 60px;
+        color: teal;
+      }
+      #calculator{
+        height: 500px;
+        width: 400px ;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        margin: auto;
+        padding-top: 40px;
+        
+       
+      }
+      #input{
+        height: 80px;
+        width: 80%;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        margin:auto;
+        background-color: rgb(241, 237, 231);
+        font-size: 40px;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+
+      }
+      #keyboard{
+        height: 350px;
+        width: 80%;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        margin: auto;
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: repeat(4,80px);
+        gap: 10px;
+      
+
+      }
+      #keyboard>div{
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        justify-content: center;
+        align-items: center;
+        display: grid;
+        font-weight: bold;
+        font-size: 25px;
+        border-radius: 50px;
+        
+      }
+      .black{
+        background-color: black;
+        color: white;
+      }
+      #red{
+        background-color: red;
+        color: white;
+      }
+      #keyboard>div:hover{
+        background-color: aqua;
+        cursor: pointer;
+      }
+      
+
+
+
+      /* use grid to acheive the layout */
+    </style>
+  </head>
+  <body>
+    <h1>Masai Calculator</h1>
+    <div id="calculator">
+      <img src="https://www.masaischool.com/img/navbar/logo.svg" alt="">
+      <div id="input"></div>
+      <div id="keyboard">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div class="black">+</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div class="black">-</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div class="black">*</div>
+        <div id="red">C</div>
+        <div>0</div>
+        <div class="black">=</div>
+        <div class="black">/</div>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+<script>
+   var nums = document.querySelectorAll("#keyboard>div")
+
+   for (var i= 0 ; i<nums.length ; i++){
+     nums[i].addEventListener("click", myclasi);
+   }
+  
+   var bag = document.querySelector("#input")
+
+   function myclasi(){
+     var targetnumber = event.target.innerText;
+     switch (targetnumber){
+       case "C":
+         bag.innerText ="";
+         break;
+       case "=":
+         bag.innerText = eval(bag.innerText)
+         break;
+       default:
+         bag.innerText += targetnumber;
+     }
+
+   }
+</script>
